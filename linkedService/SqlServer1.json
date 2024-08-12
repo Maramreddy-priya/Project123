@@ -8,10 +8,10 @@
 			"server": "LAPTOP-2PG6H9JJ",
 			"database": "Retails",
 			"encrypt": "mandatory",
-			"trustServerCertificate": false,
-			"authenticationType": "Windows",
-			"userName": "LAPTOP-2PG6H9JJ\\maram",
-			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJlNjdlY2Y4OS1iNmEyLTRiY2QtOTAxMy1iZWRhODBkNjkwZjkiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+			"trustServerCertificate": true,
+			"authenticationType": "SQL",
+			"userName": "priya",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiIxNWFmMTMwYi0yN2ZlLTQ5OGQtYTZmNC0yNGE4ZjFkMDU5OGEiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
 		},
 		"connectVia": {
 			"referenceName": "SHIR",
