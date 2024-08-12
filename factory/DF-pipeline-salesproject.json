@@ -1,0 +1,9 @@
+{
+	"name": "DF-pipeline-salesproject",
+	"location": "canadacentral",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "b76bb159-3bf8-4822-af47-28e717560e25",
+		"tenantId": "80d8b5a9-a2e9-4997-a38b-d0e9c44ef5d6"
+	}
+}
