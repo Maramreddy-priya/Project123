@@ -50,7 +50,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "SqlServerTable1",
+						"referenceName": "onpremdataset",
 						"type": "DatasetReference"
 					}
 				],
@@ -113,7 +113,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "DelimitedText3",
+						"referenceName": "Detailsdataset",
 						"type": "DatasetReference"
 					}
 				]
@@ -132,7 +132,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "SqlServerTable1",
+						"referenceName": "onpremdataset",
 						"type": "DatasetReference"
 					},
 					"fieldList": [

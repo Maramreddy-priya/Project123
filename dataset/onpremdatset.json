@@ -1,5 +1,5 @@
 {
-	"name": "SqlServerTable2",
+	"name": "onpremdatset",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "SqlServer1",

@@ -1,5 +1,5 @@
 {
-	"name": "Detailsdataset",
+	"name": "joineddata",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureDataLakeStorage1",
@@ -10,8 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "detailsdata",
-				"fileSystem": "bronze"
+				"fileName": "joindata",
+				"fileSystem": "silver"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",

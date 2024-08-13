@@ -1,0 +1,74 @@
+{
+	"name": "join_dataflow",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "ordersdata",
+						"type": "DatasetReference"
+					},
+					"name": "orderdetails"
+				},
+				{
+					"dataset": {
+						"referenceName": "Detailsdata",
+						"type": "DatasetReference"
+					},
+					"name": "Detailsdata"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "joineddata",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "join"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          Order_ID as string,",
+				"          Order_Date as string,",
+				"          CustomerName as string,",
+				"          State as string,",
+				"          City as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> orderdetails",
+				"source(output(",
+				"          {Order ID} as string,",
+				"          Amount as string,",
+				"          Profit as string,",
+				"          Quantity as string,",
+				"          Category as string,",
+				"          {Sub-Category} as string,",
+				"          PaymentMode as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> Detailsdata",
+				"orderdetails, Detailsdata join(Order_ID == {Order ID},",
+				"     joinType:'inner',",
+				"     matchType:'exact',",
+				"     ignoreSpaces: false,",
+				"     broadcast: 'auto')~> join",
+				"join sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1"
+			]
+		}
+	}
+}
