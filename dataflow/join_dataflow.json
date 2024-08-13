@@ -62,12 +62,26 @@
 				"     ignoreSpaces: false,",
 				"     broadcast: 'auto')~> join",
 				"join sink(allowSchemaDrift: true,",
-				"     validateSchema: false,",
+				"     validateSchema: true,",
 				"     umask: 0022,",
 				"     preCommands: [],",
 				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> sink1"
+				"     skipDuplicateMapOutputs: true,",
+				"     mapColumn(",
+				"          Order_ID,",
+				"          Order_Date,",
+				"          CustomerName,",
+				"          State,",
+				"          City,",
+				"          {Order ID},",
+				"          Amount,",
+				"          Profit,",
+				"          Quantity,",
+				"          Category,",
+				"          {Sub-Category},",
+				"          PaymentMode",
+				"     )) ~> sink1"
 			]
 		}
 	}
