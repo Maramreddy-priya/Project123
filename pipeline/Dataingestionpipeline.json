@@ -199,8 +199,14 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "Detailsdata",
-						"type": "DatasetReference"
+						"referenceName": "Detailsdataset",
+						"type": "DatasetReference",
+						"parameters": {
+							"Filename": {
+								"value": "@concat(pipeline().parameters.filenameinpipeline,'_',formatDateTime(utcNow(),'yyyy-mm-dd HH:mm:ss'),'.txt')",
+								"type": "Expression"
+							}
+						}
 					}
 				]
 			},
@@ -244,6 +250,12 @@
 				}
 			}
 		],
+		"parameters": {
+			"filenameinpipeline": {
+				"type": "string",
+				"defaultValue": "Details"
+			}
+		},
 		"annotations": []
 	}
 }

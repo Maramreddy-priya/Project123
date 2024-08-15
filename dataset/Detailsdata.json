@@ -5,12 +5,20 @@
 			"referenceName": "AzureDataLakeStorage1",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"filename": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "7103ec1b-71b4-4180-8c63-8e2e65e5cc29",
+				"fileName": {
+					"value": "@concat('Details','_',utcNow('yyyy-mm-dd HH:mm:ss'),'.txt')",
+					"type": "Expression"
+				},
 				"folderPath": "detailsdata",
 				"fileSystem": "bronze"
 			},
