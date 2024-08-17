@@ -13,7 +13,7 @@
 				},
 				{
 					"dataset": {
-						"referenceName": "Detailsdata",
+						"referenceName": "detailsdatainput",
 						"type": "DatasetReference"
 					},
 					"name": "Detailsdata"
@@ -22,7 +22,7 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "joineddata",
+						"referenceName": "joindata",
 						"type": "DatasetReference"
 					},
 					"name": "sink1"
@@ -44,16 +44,7 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> orderdetails",
-				"source(output(",
-				"          {Order ID} as string,",
-				"          Amount as string,",
-				"          Profit as string,",
-				"          Quantity as string,",
-				"          Category as string,",
-				"          {Sub-Category} as string,",
-				"          PaymentMode as string",
-				"     ),",
-				"     allowSchemaDrift: true,",
+				"source(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> Detailsdata",
 				"orderdetails, Detailsdata join(Order_ID == {Order ID},",
@@ -63,6 +54,20 @@
 				"     broadcast: 'auto')~> join",
 				"join sink(allowSchemaDrift: true,",
 				"     validateSchema: true,",
+				"     input(",
+				"          Order_ID as string,",
+				"          Order_Date as string,",
+				"          CustomerName as string,",
+				"          State as string,",
+				"          City as string,",
+				"          {Order ID} as string,",
+				"          Amount as string,",
+				"          Profit as string,",
+				"          Quantity as string,",
+				"          Category as string,",
+				"          {Sub-Category} as string,",
+				"          PaymentMode as string",
+				"     ),",
 				"     umask: 0022,",
 				"     preCommands: [],",
 				"     postCommands: [],",
