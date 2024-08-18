@@ -483,7 +483,7 @@
 				"type": "ExecuteDataFlow",
 				"dependsOn": [
 					{
-						"activity": "Copy data1",
+						"activity": "Set variable3",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -500,13 +500,43 @@
 				"typeProperties": {
 					"dataflow": {
 						"referenceName": "join_dataflow",
-						"type": "DataFlowReference"
+						"type": "DataFlowReference",
+						"parameters": {
+							"paramfile": {
+								"value": "'@{variables('var_test')}'",
+								"type": "Expression"
+							}
+						}
 					},
 					"compute": {
 						"coreCount": 8,
 						"computeType": "General"
 					},
 					"traceLevel": "Fine"
+				}
+			},
+			{
+				"name": "Set variable3",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Copy data1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "var_test",
+					"value": {
+						"value": "@concat('joineddata','_',formatDateTime(utcNow(),'yyyyMMdd'),'.csv')",
+						"type": "Expression"
+					}
 				}
 			}
 		],
@@ -523,6 +553,9 @@
 			"previousmodifieddate": {
 				"type": "String",
 				"defaultValue": "1990-01-01T05:12:22Z"
+			},
+			"var_test": {
+				"type": "String"
 			}
 		},
 		"annotations": []

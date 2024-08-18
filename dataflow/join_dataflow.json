@@ -34,6 +34,9 @@
 				}
 			],
 			"scriptLines": [
+				"parameters{",
+				"     paramfile as string",
+				"}",
 				"source(output(",
 				"          Order_ID as string,",
 				"          Order_Date as string,",
@@ -77,6 +80,7 @@
 				"          {Sub-Category} as string,",
 				"          PaymentMode as string",
 				"     ),",
+				"     partitionFileNames:[($paramfile)],",
 				"     umask: 0022,",
 				"     preCommands: [],",
 				"     postCommands: [],",
@@ -95,7 +99,8 @@
 				"          Category,",
 				"          {Sub-Category},",
 				"          PaymentMode",
-				"     )) ~> sink1"
+				"     ),",
+				"     partitionBy('hash', 1)) ~> sink1"
 			]
 		}
 	}
