@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "Detailsdata",
+				"fileName": "DetailsData.csv",
 				"folderPath": "lastmodifieddetailsdata",
 				"fileSystem": "bronze"
 			},
