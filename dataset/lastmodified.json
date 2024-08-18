@@ -1,5 +1,5 @@
 {
-	"name": "joindata",
+	"name": "lastmodified",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureDataLakeStorage1",
@@ -10,7 +10,9 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileSystem": "silver"
+				"fileName": "DetailsData.csv",
+				"folderPath": "lastmodifieddetailsdata",
+				"fileSystem": "bronze"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
@@ -18,26 +20,6 @@
 			"quoteChar": "\""
 		},
 		"schema": [
-			{
-				"name": "Order_ID",
-				"type": "String"
-			},
-			{
-				"name": "Order_Date",
-				"type": "String"
-			},
-			{
-				"name": "CustomerName",
-				"type": "String"
-			},
-			{
-				"name": "State",
-				"type": "String"
-			},
-			{
-				"name": "City",
-				"type": "String"
-			},
 			{
 				"name": "Order ID",
 				"type": "String"
