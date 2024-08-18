@@ -5,12 +5,6 @@
 			"referenceName": "AzureDataLakeStorage1",
 			"type": "LinkedServiceReference"
 		},
-		"parameters": {
-			"filename": {
-				"type": "string",
-				"defaultValue": "@concat(joineddata,'_',formatDateTime(utcNow(),'yyyy-MM-dd HH:mm:ss'),'.csv')"
-			}
-		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
