@@ -13,7 +13,7 @@
 				},
 				{
 					"dataset": {
-						"referenceName": "detailsdatainput",
+						"referenceName": "DelimitedText3",
 						"type": "DatasetReference"
 					},
 					"name": "Detailsdata"
@@ -44,7 +44,16 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> orderdetails",
-				"source(allowSchemaDrift: true,",
+				"source(output(",
+				"          {Order ID} as string,",
+				"          Amount as string,",
+				"          Profit as string,",
+				"          Quantity as string,",
+				"          Category as string,",
+				"          {Sub-Category} as string,",
+				"          PaymentMode as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> Detailsdata",
 				"orderdetails, Detailsdata join(Order_ID == {Order ID},",
