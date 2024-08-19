@@ -30,12 +30,12 @@
 			],
 			"transformations": [
 				{
-					"name": "join"
+					"name": "join1"
 				}
 			],
 			"scriptLines": [
 				"parameters{",
-				"     paramfile as string",
+				"     paramfilename as string",
 				"}",
 				"source(output(",
 				"          Order_ID as string,",
@@ -63,9 +63,9 @@
 				"     joinType:'inner',",
 				"     matchType:'exact',",
 				"     ignoreSpaces: false,",
-				"     broadcast: 'auto')~> join",
-				"join sink(allowSchemaDrift: true,",
-				"     validateSchema: true,",
+				"     broadcast: 'auto')~> join1",
+				"join1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
 				"     input(",
 				"          Order_ID as string,",
 				"          Order_Date as string,",
@@ -80,7 +80,7 @@
 				"          {Sub-Category} as string,",
 				"          PaymentMode as string",
 				"     ),",
-				"     partitionFileNames:[($paramfile)],",
+				"     partitionFileNames:[($paramfilename)],",
 				"     umask: 0022,",
 				"     preCommands: [],",
 				"     postCommands: [],",

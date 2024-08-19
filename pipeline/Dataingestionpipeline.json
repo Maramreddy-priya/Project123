@@ -502,7 +502,7 @@
 						"referenceName": "join_dataflow",
 						"type": "DataFlowReference",
 						"parameters": {
-							"paramfile": {
+							"paramfilename": {
 								"value": "'@{variables('var_test')}'",
 								"type": "Expression"
 							}
