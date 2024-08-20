@@ -11,6 +11,9 @@
 		"AzureDataLakeStorage2_accountKey": {
 			"value": ""
 		},
+		"AzureDatabricks1_accessToken": {
+			"value": ""
+		},
 		"SqlServer1_password": {
 			"value": ""
 		},
@@ -19,6 +22,9 @@
 		},
 		"AzureDataLakeStorage2_properties_typeProperties_url": {
 			"value": "https://salesprojectstorage.dfs.core.windows.net/"
+		},
+		"AzureDatabricks1_properties_typeProperties_existingClusterId": {
+			"value": "0819-175701-wzosry68"
 		},
 		"AzureKeyVault1_properties_typeProperties_baseUrl": {
 			"value": "https://kv-priya-demo1.vault.azure.net/"
