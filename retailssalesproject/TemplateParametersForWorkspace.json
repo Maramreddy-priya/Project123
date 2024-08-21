@@ -1,0 +1,48 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"workspaceName": {
+			"value": "retailssalesproject"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorage2_accountKey": {
+			"value": ""
+		},
+		"AzureDatabricks1_accessToken": {
+			"value": ""
+		},
+		"SqlServer1_password": {
+			"value": ""
+		},
+		"retailssalesproject-WorkspaceDefaultSqlServer_connectionString": {
+			"value": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=tcp:retailssalesproject.sql.azuresynapse.net,1433;Initial Catalog=@{linkedService().DBName}"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://salesprojectstorage.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage2_properties_typeProperties_url": {
+			"value": "https://salesprojectstorage.dfs.core.windows.net/"
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"value": "https://kv-priya-demo1.vault.azure.net/"
+		},
+		"HttpServer1_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com/Maramreddy-priya/Project123/main/Details.csv"
+		},
+		"SqlServer1_properties_typeProperties_server": {
+			"value": "LAPTOP-2PG6H9JJ"
+		},
+		"SqlServer1_properties_typeProperties_database": {
+			"value": "Retails"
+		},
+		"SqlServer1_properties_typeProperties_userName": {
+			"value": "priya"
+		},
+		"retailssalesproject-WorkspaceDefaultStorage_properties_typeProperties_url": {
+			"value": "https://salesprojectstorage.dfs.core.windows.net"
+		}
+	}
+}
