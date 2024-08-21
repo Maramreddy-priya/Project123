@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 1",
+	"properties": {
+		"content": {
+			"query": "\n\nCREATE DATABASE SCOPED CREDENTIAL sasToken2\nWITH IDENTITY ='SHARED ACCESS SIGNATURE',\nSECRET='sv=2022-11-02&ss=bfqt&srt=sco&sp=rwdlacupyx&se=2024-08-21T07:01:59Z&st=2024-08-20T23:01:59Z&spr=https&sig=xDgcanPWtv%2BB8ZU4qYc2xlAJ7linLbv7i2ED4OQjr2E%3D'\n\n\nCREATE EXTERNAL DATA SOURCE retailprojectsrc2\nWITH \n(\n    LOCATION='https://salesprojectstorage.blob.core.windows.net/gold',\n    CREDENTIAL=sasToken2\n)\n\nCREATE EXTERNAL FILE FORMAT parquetFileFormat2 WITH\n(\n    FORMAT_TYPE=PARQUET,\n    DATA_COMPRESSION='org.apache.hadoop.io.compress.SnappyCodec'\n)\n\nCREATE EXTERNAL TABLE Retailproject2\n(\n    [Order_ID] varchar(200),\n   [Order_Date] varchar(300),\n   [CustomerName] varchar(100),\n   [State] varchar(100),\n   [City] varchar(100),\n   [Amount] int,\n   [Profit] int,\n   [Quantity] int,\n   [Category] varchar(300),\n   [Sub-Category] varchar(1000),\n   [PaymentMode] varchar(2000))\n\nWITH (\n    LOCATION='/transformedfile',\n    DATA_SOURCE=retailprojectsrc2,\n    FILE_FORMAT=parquetFileFormat2\n)\n\n\n\nSELECT * FROM Retailproject2;\n\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "salesproject",
+				"poolName": "salesproject"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
